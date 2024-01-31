@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BaseUi from "./baseui";
+import Mui from "./mui";
+import JoyUi from "./joyui";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <>
+      <div style={{ margin: 30 }}>
+        <a style={{ marginRight: 20 }} href="/baseui">
+          BaseUI
         </a>
-      </header>
-    </div>
+        <a style={{ marginRight: 20 }} href="/mui">
+          MUI
+        </a>
+        <a style={{ marginRight: 20 }} href="/joyui">
+          JoyUI
+        </a>
+      </div>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route path="baseui" element={<BaseUi />} />
+            <Route path="mui" element={<Mui />} />
+            <Route path="joyui" element={<JoyUi />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
